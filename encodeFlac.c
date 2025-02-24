@@ -108,7 +108,7 @@ int encode(unsigned channels, unsigned sample_rate, unsigned bps,unsigned _total
                 size_t i;
                 for(i = 0; i < need*channels; i++) {
                     /* inefficient but simple and works on big- or little-endian machines */
-                    pcm[i] = (FLAC__int32)(((FLAC__int16)(FLAC__int8)buffer[channels*i+1] << 8) | (FLAC__int16)buffer[channels*i]);                
+                    pcm[i] = (FLAC__int32)(((FLAC__int16)(FLAC__int8)buffer[2*i+1] << 8) | (FLAC__int16)buffer[2*i]);
                 }
                 /* feed samples to encoder */
                 ok = FLAC__stream_encoder_process_interleaved(encoder, pcm, need);

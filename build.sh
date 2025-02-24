@@ -11,5 +11,5 @@ emcc ${FLAC_SHARED_LIB} ./encodeFlac.c \
   -s ALLOW_MEMORY_GROWTH=1 \
   -s EXPORTED_RUNTIME_METHODS='["FS"]' \
   -s FORCE_FILESYSTEM=1 \
-  -s USE_OGG=1 \
+  -s USE_OGG=0 \
   -o wasm/encodeFlac.js --bind
