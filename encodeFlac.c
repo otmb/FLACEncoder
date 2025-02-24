@@ -119,8 +119,8 @@ int encode(unsigned channels, unsigned sample_rate, unsigned bps,unsigned _total
 
     ok &= FLAC__stream_encoder_finish(encoder);
 
-    fprintf(stderr, "encoding: %s\n", ok? "succeeded" : "FAILED");
-    fprintf(stderr, "   state: %s\n", FLAC__StreamEncoderStateString[FLAC__stream_encoder_get_state(encoder)]);
+    fprintf(stdout, "encoding: %s\n", ok? "succeeded" : "FAILED");
+    fprintf(stdout, "   state: %s\n", FLAC__StreamEncoderStateString[FLAC__stream_encoder_get_state(encoder)]);
 
     /* now that encoding is finished, the metadata can be freed */
     FLAC__metadata_object_delete(metadata[0]);
@@ -135,5 +135,5 @@ int encode(unsigned channels, unsigned sample_rate, unsigned bps,unsigned _total
 void progress_callback(const FLAC__StreamEncoder *encoder, FLAC__uint64 bytes_written, FLAC__uint64 samples_written, unsigned frames_written, unsigned total_frames_estimate, void *client_data)
 {
     (void)encoder, (void)client_data;
-    fprintf(stderr, "wrote %llu bytes, %llu/%u samples, %u/%u frames\n", bytes_written, samples_written, total_samples, frames_written, total_frames_estimate);
+    fprintf(stdout, "wrote %llu bytes, %llu/%u samples, %u/%u frames\n", bytes_written, samples_written, total_samples, frames_written, total_frames_estimate);
 }

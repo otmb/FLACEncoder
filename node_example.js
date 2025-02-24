@@ -21,4 +21,5 @@ Module.onRuntimeInitialized = () => {
         process.exit(1);
     });
 };
+// Module.stdout = function(text) { /*console.log(text);*/ }
 // Module.stderr = function(text) { /*console.log(text);*/ }
